@@ -1,47 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Una sorpresa ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Una sorpresa para ti ❤️</title>
 
 <style>
 
 body{
-background:#111;
+margin:0;
+background:linear-gradient(180deg,#0f172a,#1e293b,#111827);
+font-family:Arial,sans-serif;
+overflow:hidden;
 color:white;
-font-family:Arial;
 text-align:center;
-padding-top:60px;
+}
+
+#contenido{
+margin-top:90px;
+padding:20px;
+position:relative;
+z-index:10;
+}
+
+h1{
+font-size:42px;
+}
+
+p{
+font-size:22px;
+opacity:.9;
 }
 
 button{
-
-padding:20px;
+padding:18px 40px;
 font-size:22px;
 border:none;
-border-radius:15px;
-background:#ff4d6d;
+border-radius:40px;
+background:#ff2d55;
 color:white;
 cursor:pointer;
-
+box-shadow:0 0 25px rgba(255,45,85,.5);
+transition:.3s;
 }
 
-img{
+button:hover{
+transform:scale(1.05);
+}
 
+#foto{
 display:none;
+margin-top:35px;
 width:90%;
-max-width:500px;
-margin-top:30px;
+max-width:450px;
 border-radius:20px;
-
+box-shadow:0 0 35px rgba(255,255,255,.25);
+animation:aparecer 1.5s;
 }
 
 #mensaje{
-
 display:none;
 font-size:30px;
 margin-top:25px;
+animation:aparecer 2s;
+}
 
+@keyframes aparecer{
+from{
+opacity:0;
+transform:scale(.8);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.heart{
+position:absolute;
+color:#ff4d6d;
+font-size:24px;
+animation:flotar linear infinite;
+opacity:.8;
+}
+
+@keyframes flotar{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120px);
+opacity:0;
+}
 }
 
 </style>
@@ -50,11 +105,15 @@ margin-top:25px;
 
 <body>
 
-<h1>Tengo una sorpresa para ti ❤️</h1>
+<div id="corazones"></div>
 
-<p>Haz clic para descubrirla.</p>
+<div id="contenido">
 
-<button onclick="mostrar()">
+<h1>❤️ Tengo una sorpresa para ti ❤️</h1>
+
+<p>Hay momentos que merecen recordarse para siempre...</p>
+
+<button onclick="abrir()">
 
 🎁 Abrir regalo
 
@@ -66,22 +125,58 @@ margin-top:25px;
 
 <div id="mensaje">
 
-😍 ¡Nos vamos a ver a Romeo Santos y Prince Royce!
+💖 ¡Nos vamos juntos a ver a Romeo Santos y Prince Royce! 💖
+
+<br><br>
+
+Gracias por llenar mi vida de momentos inolvidables.
+
+Te amo ❤️
+
+</div>
+
+<audio id="musica" loop>
+<source src="TU_MUSICA.mp3" type="audio/mpeg">
+</audio>
 
 </div>
 
 <script>
 
-function mostrar(){
+function abrir(){
 
 document.getElementById("foto").style.display="block";
-
 document.getElementById("mensaje").style.display="block";
 
+document.getElementById("musica").play();
+
 }
+
+function crearCorazon(){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*30)+"px";
+
+heart.style.animationDuration=(5+Math.random()*6)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},11000);
+
+}
+
+setInterval(crearCorazon,300);
 
 </script>
 
 </body>
-
 </html>
