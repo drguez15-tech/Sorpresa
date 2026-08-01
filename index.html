@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Una sorpresa ❤️</title>
+
+<style>
+
+body{
+background:#111;
+color:white;
+font-family:Arial;
+text-align:center;
+padding-top:60px;
+}
+
+button{
+
+padding:20px;
+font-size:22px;
+border:none;
+border-radius:15px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+
+}
+
+img{
+
+display:none;
+width:90%;
+max-width:500px;
+margin-top:30px;
+border-radius:20px;
+
+}
+
+#mensaje{
+
+display:none;
+font-size:30px;
+margin-top:25px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Tengo una sorpresa para ti ❤️</h1>
+
+<p>Haz clic para descubrirla.</p>
+
+<button onclick="mostrar()">
+
+🎁 Abrir regalo
+
+</button>
+
+<br>
+
+<img id="foto" src="boletos.jpg">
+
+<div id="mensaje">
+
+😍 ¡Nos vamos a ver a Romeo Santos y Prince Royce!
+
+</div>
+
+<script>
+
+function mostrar(){
+
+document.getElementById("foto").style.display="block";
+
+document.getElementById("mensaje").style.display="block";
+
+}
+
+</script>
+
+</body>
+
+</html>
